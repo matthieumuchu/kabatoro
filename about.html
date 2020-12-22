@@ -22,6 +22,29 @@
         font-size: 18px;
       }
     </style>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/integration
+            emailjs.init('user_cVpeSLcChMo12CeAXoWKM');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 	</head>
 	<body class="no-sidebar is-preload">
 		<div id="page-wrapper">
@@ -49,7 +72,7 @@
 						
 					<span class="fas fa-phone"><a href="tel://+256704898146" >Tel:+256704898146</a></span>   
 						&nbsp;&nbsp;
-					<span class="fas fa-envelope"><a href="mailto:vehiclehirekabatoro@gmail.com" >vehiclehirekabatoro@gmail.com</a></span>
+					<span class="fas fa-envelope"><a href="mailto:reservationkabatoro@gmail.com" >reservationkabatoro@gmail.com</a></span>
 					
 					</span>
 							<ul>
@@ -89,41 +112,44 @@
 					<div class="container">
 						<article id="main" class="special">
 							<header>
-								<h2>Vehicle Hire</h2>
-								<p>
-								we have well serviced cars and vehicles in great condition ready to be hired for your convenience.
-								</p>
+								<h2>About Us</h2>
+								
 							</header>
 
 							<!-- Photos -->
 								<section  >
-									<header>
-										<h2 class="fas fa-shuttle-van"> <span class="label">Hiring Options</span></h2>
-									</header>
+									
 						<hr />
 
-									<h3>Local Area Vechicle Hire</h3>
-									<p>This includes trips within the local area about 120 kilometers     <a href="" style="color:blue;">Request Quote</a></p>
-									<br>
-									<h3>Vehicle Hire to nearby parks</h3>
-									<p>This option includes trips to nearby parks which are about 300 kilometers away   <a href="" style="color:blue;">Request Quote</a></p>
-									<br>
-									<h3>Vehicle hire to and from Kampala or Airport</h3>
-									<p>This option includes trips to Kamapala district which is about 1000 kilometers from the Kabatoro Tourist Camp to and from  <a href="" style="color:blue;">Request Quote</a></p>
+									<h3>Kabatoro Hostel and Tourist Camp is indeed the Little Haven in the famous Queen Elizabeth National Park and the Kazinga Channel- Kasese District, Uganda; we are the excellent base for tourism circuits for all tourists: to see Lion, Leopard, Buffalo,Hippo, Antelope, Chimpanzee, Baboon, and the many Birds!! 
+									QENP is a Birders' paradise! Start here your Boat cruises on the Kazinga Channel and on Lake Edward; Tour the Katwe Salt Lake area, and the Flamingos Lake - (Munyanyange); then the Flora, and Rwenzori Mts. range in the background on clear skies, in Western Uganda; 
+									Budget Accommodation and Mid-Range (Safari Cottages), Tents and a Students' Hostel. 
+									Foods are prepared by our Chef and Beverages are served by trained staff in a serene and tranquil atmosphere of QENP, and amidst a variety of local cultures and hospitality. 
+                                    We have Tour guides on site and a Tour Vehicle for hire. We shall take your reservation if you can book now.</h3>
+									
 								</section>
 
 					
 
 						</article>
 						<hr />
-						<div class="row">
-						<p>should we add a information here?</p>
-
-					</div>
+						
 
 
 
 				</div>
+				
+				
+				<form id="contact-form">
+        <input type="hidden" name="contact_number">
+        <label>Name</label>
+        <input type="text" name="user_name">
+        <label>Email</label>
+        <input type="email" name="user_email">
+        <label>Message</label>
+        <textarea name="message"></textarea>
+        <input type="submit" value="Send">
+               </form>
 
 
 
@@ -176,27 +202,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			 <script src="owlcarousel/owl.carousel.min.js"></script>
-<script>  $(document).ready(function() {
-
-  $("#owl-demo").owlCarousel({
-    autoPlay : 3000,
-	autoplay:true,
-    autoplayTimeout:5000,
-    autoplayHoverPause:true,
-    autoplaySpeed:5000,
-	loop : true,
-    stopOnHover : true,
-    navigation:true,
-    paginationSpeed : 1000,
-    goToFirstSpeed : 2000,
-    singleItem : true,
-    autoHeight : true,
-    transitionStyle:"fade"
-  });
-
-});
-</script>
+			 
 
 	</body>
 </html>
